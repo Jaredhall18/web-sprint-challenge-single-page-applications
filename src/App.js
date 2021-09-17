@@ -7,6 +7,26 @@ import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
 import Confirmation from './components/Confirmation'
 
+//Initial States
+
+const initialFormValues = {
+  name: '',
+  size: '',
+  chicken: false,
+  meatballs: false,
+  olives: false,
+  cheese: false,
+  special: '',
+}
+
+const initialFormErrors = {
+  name: '',
+  size: '',
+}
+const initialOrder=[]
+const initialDisabled = true
+
+
 const App = () => {
   return (
     <>
