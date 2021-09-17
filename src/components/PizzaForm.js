@@ -3,10 +3,28 @@ import React from 'react'
 // We'll need a Link and the useRouteMatch hook from 'react-router-dom'
 import { Link, useRouteMatch } from 'react-router-dom';
 
-export default function PizzaForm() {
+export default function PizzaForm(props) {
+    const {
+        values,
+        submit,
+        change,
+        disabled,
+        errors,
+    } = props
+
+    const onSubmit = evt => {
+        evt.preventDefault()
+        submit()
+    }
+
+    const onChange = evt => {
+        const { name, value, checked, type } = evt.target
+        const valueToUse = type === 'checkbox' ? checked : value;
+        change(name, valueToUse)
+    }
 
     return(
-        <form id="pizza-form">
+        <form id="pizza-form" onSubmit={onSubmit}>
             <div>
                 <h2>Build your Pizza</h2>
 
@@ -79,6 +97,11 @@ export default function PizzaForm() {
                     type='text'
                     />
                 </label>
+
+                <div className='errors'>
+                    <div>{errors.name}</div>
+                    <div>{errors.size}</div>
+                </div>
             </div>
 
             <button disabled={disabled}>Add to Order</button>
