@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import axios from 'axios'; //To post data later?
 import { Route, Link, Switch } from 'react-router-dom';
+import * as yup from 'yup';
 
 //import components
 import Home from './components/Home'
 import PizzaForm from './components/PizzaForm'
-import Confirmation from './components/Confirmation'
+
 
 //Initial States
 
@@ -23,11 +24,18 @@ const initialFormErrors = {
   name: '',
   size: '',
 }
-const initialOrder=[]
+const initialOrders = []
 const initialDisabled = true
 
 
 const App = () => {
+//passing in states
+const [orders, setOrders] = useState(initialOrders)       
+  const [formValues, setFormValues] = useState(initialFormValues) 
+  const [formErrors, setFormErrors] = useState(initialFormErrors) 
+  const [disabled, setDisabled] = useState(initialDisabled)       
+
+
   return (
     <>
       <nav>
@@ -38,7 +46,13 @@ const App = () => {
       </nav>
       <Switch>
        <Route path={'/pizza'}>
-          <PizzaForm />
+          <PizzaForm 
+          values={formValues}
+          // change={inputChange}
+          // submit={formSubmit}
+          disabled={disabled}
+          errors={formErrors}
+          />
         </Route>
         <Route path={'/'}>
           <Home />
