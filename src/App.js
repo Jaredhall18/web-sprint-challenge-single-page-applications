@@ -39,6 +39,7 @@ const [orders, setOrders] = useState(initialOrders)
   const postNewOrder = newOrder => {
     axios.post('https://reqres.in/api/orders', newOrder)
     .then(res => {
+      console.log(res);
       setOrders([res.data, ...orders])
       setFormValues(initialFormValues);
     }).catch(err => {
@@ -66,11 +67,19 @@ const [orders, setOrders] = useState(initialOrders)
     const newOrder = {
       name: formValues.name.trim(),
       size: formValues.size.trim(),
+      chicken: formValues.chicken,
+      meatballs: formValues.meatballs,
+      olives: formValues.olives,
+      cheese: formValues.cheese,
       special: formValues.special.trim(),
-      toppings: ['chicken', 'meatballs', 'olives', 'cheese'].filter(topping => !!formValues[topping])
+      // toppings: ['chicken', 'meatballs', 'olives', 'cheese'].filter(topping => !!formValues[topping])
     }
-    formSubmit(newOrder);
+    postNewOrder(newOrder);
   }
+
+  useEffect(() => {
+    schema.isValid(formValues).then(valid => setDisabled(!valid))
+  }, [formValues])
 
   return (
     <>

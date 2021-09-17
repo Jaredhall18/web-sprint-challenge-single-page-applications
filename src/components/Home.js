@@ -18,6 +18,7 @@ export default function Home() {
             <button
                 onClick={routeToOrder}
                 className='md-button shop-button'
+                id="order-pizza"
             >
              Shop now!
              </button>

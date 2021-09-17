@@ -28,8 +28,9 @@ export default function PizzaForm(props) {
             <div>
                 <h2>Build your Pizza</h2>
 
-                <label id="name-input">Name
-                    <input
+                <label>Name
+                    <input 
+                    id="name-input"
                     value={values.name}
                     onChange={onChange}
                     name='name'
@@ -37,8 +38,9 @@ export default function PizzaForm(props) {
                     />
                 </label>
 
-                <label id='size-dropdown'>Size
+                <label >Size
                     <select
+                    id='size-dropdown'
                     value={values.size}
                     onChange={onChange}
                     name='size'
@@ -88,8 +90,9 @@ export default function PizzaForm(props) {
                     />
                 </label>
 
-                <label id="special-text"> Special Instructions
+                <label> Special Instructions
                     <input
+                    id="special-text"
                     value={values.special}
                     onChange={onChange}
                     name='special'
