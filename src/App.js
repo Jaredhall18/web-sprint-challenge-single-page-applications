@@ -2,14 +2,28 @@ import React from "react";
 import axios from 'axios'; //To post data later?
 import { Route, Link, Switch } from 'react-router-dom';
 
+//import components
+import Home from './components/Home'
+import PizzaForm from './components/PizzaForm'
+import Confirmation from './components/Confirmation'
 
 const App = () => {
   return (
     <>
-      <header>
+      <nav>
         <h1>Lambda Eats</h1>
-        <p>You can remove this code and create your own header</p>
-      </header>
+        <div className='nav-links'>
+          <Link to='/'>Home</Link>
+        </div>
+      </nav>
+      <Switch>
+       <Route path={'/pizza'}>
+          <PizzaForm />
+        </Route>
+        <Route path={'/'}>
+          <Home />
+        </Route>
+      </Switch>
       
     </>
   );
