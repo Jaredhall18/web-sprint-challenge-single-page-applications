@@ -33,8 +33,16 @@ Commit your code regularly and meaningfully. This helps both you (in case you ev
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question.
 
 1. In 1-2 sentences, explain what React's `useRouteMatch` hook is used for.
+
+    This hook is used to add nested routes to your application so that you can change a single parameter in the URL without having to change the whole URL. 
+
 1. How would you explain form validation to someone who has never programmed before?
+
+Form validation is a way to make sure people enter the right information into a form. an example would be requiring a certain number of characters or symbols when creating a password. This insures people are creating secure passwords before creating an account.
+
 1. In 1-2 sentences, define end to end testing.
+
+End to end testing is a practice of writing tests that start from the beginning of the user experience and runs through every element and component on the page to ensure there are no bugs with the code. This is a thorough and effective way to prevent bugs in code prior to pushing. It is time consuming though!
 
 ## Instructions
 
@@ -79,9 +87,9 @@ there is a key for each of the toppings and they are booleans
 
 Implement the following tests in Cypress:
 
-- [ ] test that you can add text to the box
-- [ ] test that you can select multiple toppings
-- [ ] test that you can submit the form
+- [x] test that you can add text to the box
+- [x] test that you can select multiple toppings
+- [x] test that you can submit the form
 
 In your solution, it is essential that you follow best practices and produce clean and professional results. You will be scored on your adherence to proper code style and good organization. Schedule time to review, refine, and assess your work and perform basic professional polishing including spell-checking and grammar-checking on your work. It is better to submit a challenge that meets MVP than one that attempts too much and does not.
 
